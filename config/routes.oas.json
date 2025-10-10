@@ -23,7 +23,7 @@
           },
           "policies": {
             "inbound": [
-              "boomi-event-stream-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -48,7 +48,7 @@
           },
           "policies": {
             "inbound": [
-              "boomi-event-stream-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -73,7 +73,8 @@
           },
           "policies": {
             "inbound": [
-              "boomi-event-stream-bearer-token"
+              "crowdtwist-fluent-basic-auth-inbound",
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -98,7 +99,7 @@
           },
           "policies": {
             "inbound": [
-              "boomi-event-stream-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -123,7 +124,7 @@
           },
           "policies": {
             "inbound": [
-              "boomi-event-stream-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -148,7 +149,7 @@
           },
           "policies": {
             "inbound": [
-              "boomi-event-stream-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -173,7 +174,7 @@
           },
           "policies": {
             "inbound": [
-              "boomi-event-stream-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -198,7 +199,7 @@
           },
           "policies": {
             "inbound": [
-              "boomi-event-stream-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -223,7 +224,7 @@
           },
           "policies": {
             "inbound": [
-              "boomi-event-stream-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },

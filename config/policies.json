@@ -13,7 +13,7 @@
           ]
         }
       },
-      "name": "boomi-event-stream-bearer-token",
+      "name": "boomi-event-streams-bearer-token-inbound",
       "policyType": "set-headers-inbound"
     },
     {
@@ -23,6 +23,27 @@
       },
       "name": "fluent-signature-verify-hmac-auth-inbound",
       "policyType": "custom-code-inbound"
+    },
+    {
+      "handler": {
+        "export": "BasicAuthInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "accounts": [
+            {
+              "data": {
+                "name": "John Doe",
+                "email": "john.doe@gmail.com"
+              },
+              "password": "$env(CROWDTWIST_FLUENT_PASSWORD)",
+              "username": "$env(CROWDTWIST_FLUENT_USERNAME)"
+            }
+          ],
+          "allowUnauthenticatedRequests": false
+        }
+      },
+      "name": "crowdtwist-fluent-basic-auth-inbound",
+      "policyType": "basic-auth-inbound"
     }
   ]
 }

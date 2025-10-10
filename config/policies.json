@@ -2,12 +2,27 @@
   "policies": [
     {
       "handler": {
-        "export": "MockApiInboundPolicy",
+        "export": "SetHeadersInboundPolicy",
         "module": "$import(@zuplo/runtime)",
-        "options": {}
+        "options": {
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "$env(BOOMI_EVENT_STREAMS_TOKEN)"
+            }
+          ]
+        }
       },
-      "name": "mock-api-inbound",
-      "policyType": "mock-api-inbound"
+      "name": "boomi-event-stream-bearer-token",
+      "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/fluent-signature-verify-hmac-auth-inbound)"
+      },
+      "name": "fluent-signature-verify-hmac-auth-inbound",
+      "policyType": "custom-code-inbound"
     }
   ]
 }

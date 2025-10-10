@@ -106,7 +106,7 @@
         "operationId": "new-route-8ece781e"
       }
     },
-    "/topic_fluent_us_paymentRefundWebhook": {
+    "/topic_fluent_us_payment_refund_webhook": {
       "x-zuplo-path": {
         "pathMode": "open-api"
       },

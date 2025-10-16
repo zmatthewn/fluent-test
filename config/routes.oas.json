@@ -230,6 +230,56 @@
         },
         "operationId": "new-route-9c799050"
       }
+    },
+    "/topic_fluent_us_shipping_request_webhook": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "topic_fluent_us_shipping_request_webhook",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "boomi-event-streams-bearer-token-inbound"
+            ]
+          }
+        },
+        "operationId": "new-route-66765fa2"
+      }
+    },
+    "/topic_fluent_ca_shipping_request_webhook": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "topic_fluent_ca_shipping_request_webhook",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "boomi-event-streams-bearer-token-inbound"
+            ]
+          }
+        },
+        "operationId": "new-route-6a80299c"
+      }
     }
   },
   "components": {

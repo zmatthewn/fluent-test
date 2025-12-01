@@ -280,6 +280,79 @@
         },
         "operationId": "new-route-6a80299c"
       }
+    },
+    "/fluent_retrieveShippingLabel?trackingnumber={}": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "get": {
+        "summary": "Fluents URL to retrieve Proship Shipping Label from our file storage",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "https://boomi-test.zumiez.com/ws/rest/fluent/shipping_label?trackingnumber={}"
+            }
+          },
+          "policies": {
+            "inbound": []
+          }
+        },
+        "operationId": "new-route-7898f425"
+      }
+    },
+    "/topic_fluent_us_email_customer_webhook": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "topic_fluent_us_email_customer_webhook",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "boomi-event-streams-bearer-token-inbound"
+            ]
+          }
+        },
+        "operationId": "new-route-e4b50582"
+      }
+    },
+    "/topic_fluent_ca_email_customer_webhook": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "topic_fluent_ca_email_customer_webhook",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "boomi-event-streams-bearer-token-inbound"
+            ]
+          }
+        },
+        "operationId": "new-route-b53e72cb"
+      }
     }
   },
   "components": {

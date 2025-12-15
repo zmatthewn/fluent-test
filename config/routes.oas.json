@@ -4,6 +4,76 @@
     "version": "1.0.0",
     "title": "My Zuplo API"
   },
+  "components": {
+    "schemas": {
+      "Todo": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "The todo ID"
+          },
+          "title": {
+            "type": "string",
+            "description": "The todo title"
+          },
+          "completed": {
+            "type": "boolean",
+            "description": "Whether the todo is completed"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "The user ID who owns the todo"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "completed",
+          "userId"
+        ]
+      },
+      "CreateTodo": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The todo title"
+          },
+          "completed": {
+            "type": "boolean",
+            "description": "Whether the todo is completed",
+            "default": false
+          },
+          "userId": {
+            "type": "integer",
+            "description": "The user ID who owns the todo"
+          }
+        },
+        "required": [
+          "title",
+          "userId"
+        ]
+      },
+      "UpdateTodo": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "description": "The todo title"
+          },
+          "completed": {
+            "type": "boolean",
+            "description": "Whether the todo is completed"
+          },
+          "userId": {
+            "type": "integer",
+            "description": "The user ID who owns the todo"
+          }
+        }
+      }
+    }
+  },
   "paths": {
     "/topic_cybersource_us_fraud_detection_webhook": {
       "x-zuplo-path": {
@@ -353,73 +423,34 @@
         },
         "operationId": "new-route-b53e72cb"
       }
-    }
-  },
-  "components": {
-    "schemas": {
-      "Todo": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "description": "The todo ID"
+    },
+    "/fluent_getShippingLabel/:filename": {
+      "x-zuplo-path": {
+        "pathMode": "url-pattern"
+      },
+      "get": {
+        "summary": "proship:fluent",
+        "description": "url rewrite to serve shipping label from object storage",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlRewriteHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "rewritePattern": "${env.AZURE_BLOB_BASEURL}/products/proship/labels/${params.filename}?${env.AZURE_BLOB_SAS_AUTH}"
+            }
           },
-          "title": {
-            "type": "string",
-            "description": "The todo title"
-          },
-          "completed": {
-            "type": "boolean",
-            "description": "Whether the todo is completed"
-          },
-          "userId": {
-            "type": "integer",
-            "description": "The user ID who owns the todo"
+          "policies": {
+            "inbound": []
           }
         },
-        "required": [
-          "id",
-          "title",
-          "completed",
-          "userId"
-        ]
-      },
-      "CreateTodo": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "description": "The todo title"
-          },
-          "completed": {
-            "type": "boolean",
-            "description": "Whether the todo is completed",
-            "default": false
-          },
-          "userId": {
-            "type": "integer",
-            "description": "The user ID who owns the todo"
-          }
-        },
-        "required": [
-          "title",
-          "userId"
-        ]
-      },
-      "UpdateTodo": {
-        "type": "object",
-        "properties": {
-          "title": {
-            "type": "string",
-            "description": "The todo title"
-          },
-          "completed": {
-            "type": "boolean",
-            "description": "Whether the todo is completed"
-          },
-          "userId": {
-            "type": "integer",
-            "description": "The user ID who owns the todo"
+        "operationId": "new-route-80f5dc5b",
+        "additionalOperationContext": {
+          "oasFilePath": "/config/routes.oas.json",
+          "method": "get",
+          "path": "/fluent_getShippingLabel/:filename",
+          "pathZuploConfig": {
+            "pathMode": "url-pattern"
           }
         }
       }

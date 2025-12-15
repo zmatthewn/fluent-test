@@ -429,7 +429,7 @@
         "pathMode": "url-pattern"
       },
       "get": {
-        "summary": "url rewrite to serve shipping label from object storage",
+        "summary": "proship:fluent",
         "description": "url rewrite to serve shipping label from object storage",
         "x-zuplo-route": {
           "corsPolicy": "none",
@@ -437,7 +437,7 @@
             "export": "urlRewriteHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "rewritePattern": "${env.AZURE_BLOB_BASEURL}/products/proship/labels/${hostname}/${params.filename}?${env.AZURE_BLOB_SAS_AUTH}"
+              "rewritePattern": "${env.AZURE_BLOB_BASEURL}/products/proship/labels/${params.filename}?${env.AZURE_BLOB_SAS_AUTH}"
             }
           },
           "policies": {

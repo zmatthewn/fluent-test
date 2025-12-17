@@ -164,12 +164,12 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.TEMPUATPROD_BOOMI_EVENT_STREAMS_BASE_URL}"
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
             }
           },
           "policies": {
             "inbound": [
-              "tempuatprod-boomi-event-streams-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -189,12 +189,12 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.TEMPUATPROD_BOOMI_EVENT_STREAMS_BASE_URL}"
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
             }
           },
           "policies": {
             "inbound": [
-              "tempuatprod-boomi-event-streams-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -214,12 +214,12 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.TEMPUATPROD_BOOMI_EVENT_STREAMS_BASE_URL}"
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
             }
           },
           "policies": {
             "inbound": [
-              "tempuatprod-boomi-event-streams-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -239,12 +239,12 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.TEMPUATPROD_BOOMI_EVENT_STREAMS_BASE_URL}"
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
             }
           },
           "policies": {
             "inbound": [
-              "tempuatprod-boomi-event-streams-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -264,12 +264,12 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.TEMPUATPROD_BOOMI_EVENT_STREAMS_BASE_URL}"
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
             }
           },
           "policies": {
             "inbound": [
-              "tempuatprod-boomi-event-streams-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -289,12 +289,12 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.TEMPUATPROD_BOOMI_EVENT_STREAMS_BASE_URL}"
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
             }
           },
           "policies": {
             "inbound": [
-              "tempuatprod-boomi-event-streams-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -314,12 +314,12 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.TEMPUATPROD_BOOMI_EVENT_STREAMS_BASE_URL}"
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
             }
           },
           "policies": {
             "inbound": [
-              "tempuatprod-boomi-event-streams-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },
@@ -339,12 +339,12 @@
             "export": "urlForwardHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "baseUrl": "${env.TEMPUATPROD_BOOMI_EVENT_STREAMS_BASE_URL}"
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
             }
           },
           "policies": {
             "inbound": [
-              "tempuatprod-boomi-event-streams-bearer-token"
+              "boomi-event-streams-bearer-token-inbound"
             ]
           }
         },

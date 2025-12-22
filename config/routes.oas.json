@@ -429,7 +429,7 @@
         "pathMode": "url-pattern"
       },
       "get": {
-        "summary": "fluent:proship get shipping label",
+        "summary": "proship:fluent",
         "description": "url rewrite to serve shipping label from object storage",
         "x-zuplo-route": {
           "corsPolicy": "none",
@@ -444,7 +444,40 @@
             "inbound": []
           }
         },
-        "operationId": "new-route-80f5dc5b"
+        "operationId": "new-route-80f5dc5b",
+        "additionalOperationContext": {
+          "oasFilePath": "/config/routes.oas.json",
+          "method": "get",
+          "path": "/fluent_getShippingLabel/:filename",
+          "pathZuploConfig": {
+            "pathMode": "url-pattern"
+          }
+        }
+      }
+    },
+    "/topic_dialpad_agent_status_change_webhook": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "/topic_dialpad_agent_status_change_webhook",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "boomi-event-streams-bearer-token-inbound"
+            ]
+          }
+        },
+        "operationId": "new-route-fbd80e68"
       }
     }
   }

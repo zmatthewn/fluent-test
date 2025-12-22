@@ -44,6 +44,22 @@
       },
       "name": "crowdtwist-fluent-basic-auth-inbound",
       "policyType": "basic-auth-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "$env(TEMPUATPROD_BOOMI_EVENT_STREAMS_TOKEN)"
+            }
+          ]
+        }
+      },
+      "name": "tempuatprod-boomi-event-streams-bearer-token",
+      "policyType": "set-headers-inbound"
     }
   ]
 }

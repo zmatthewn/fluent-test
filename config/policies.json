@@ -60,6 +60,30 @@
       },
       "name": "tempuatprod-boomi-event-streams-bearer-token",
       "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersOutboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "image/png"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Content-Disposition",
+              "value": "inline"
+            }
+          ]
+        }
+      },
+      "name": "fluent-set-headers-outbound-image",
+      "policyType": "set-headers-outbound"
     }
   ]
 }

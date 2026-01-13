@@ -74,6 +74,10 @@
             {
               "name": "Access-Control-Allow-Origin",
               "value": "*"
+            },
+            {
+              "name": "Content-Disposition",
+              "value": "inline"
             }
           ]
         }

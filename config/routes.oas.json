@@ -437,7 +437,7 @@
             "export": "urlRewriteHandler",
             "module": "$import(@zuplo/runtime)",
             "options": {
-              "rewritePattern": "${env.AZURE_BLOB_BASEURL}/products/proship/labels/${params.filename}?${env.AZURE_BLOB_SAS_AUTH}"
+              "rewritePattern": "${env.AZURE_BLOB_BASEURL}/applications/proship/labels/${params.filename}?${env.AZURE_BLOB_SAS_AUTH}"
             }
           },
           "policies": {

@@ -44,6 +44,46 @@
       },
       "name": "crowdtwist-fluent-basic-auth-inbound",
       "policyType": "basic-auth-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersInboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "$env(TEMPUATPROD_BOOMI_EVENT_STREAMS_TOKEN)"
+            }
+          ]
+        }
+      },
+      "name": "tempuatprod-boomi-event-streams-bearer-token",
+      "policyType": "set-headers-inbound"
+    },
+    {
+      "handler": {
+        "export": "SetHeadersOutboundPolicy",
+        "module": "$import(@zuplo/runtime)",
+        "options": {
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "image/png"
+            },
+            {
+              "name": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "name": "Content-Disposition",
+              "value": "inline"
+            }
+          ]
+        }
+      },
+      "name": "fluent-set-headers-outbound-image",
+      "policyType": "set-headers-outbound"
     }
   ]
 }

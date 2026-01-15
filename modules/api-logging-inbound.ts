@@ -13,26 +13,30 @@ export default async function (
 ) {
   try {
     // skip body capture for methods that don't have bodies
-    if (
-      request.method === "GET" ||
-      request.method === "HEAD" ||
-      request.method === "OPTIONS"
-    ) {
+    if (request.method === "GET" || request.method === "HEAD" || request.method === "OPTIONS") {
       context.custom.capturedRequestBody = null;
       return request;
     }
 
     const contentType = request.headers.get("content-type") || "";
-
-    // clone the request so we don't consume the original body
     const clonedRequest = request.clone();
 
     if (contentType.includes("application/json")) {
       context.custom.capturedRequestBody = await clonedRequest.json();
-    } else if (
-      contentType.includes("text/") ||
-      contentType.includes("application/x-www-form-urlencoded")
-    ) {
+    } else if (contentType.includes("application/x-www-form-urlencoded")) {
+      const text = await clonedRequest.text();
+      const params = new URLSearchParams(text);
+      const entries = Object.fromEntries(params.entries());
+
+      // if there's only one field called 'content', just store its value directly (common ish pattern for xml payloads wrapped in form encoding)
+      const keys = Object.keys(entries);
+      if (keys.length === 1 && keys[0] === "content") {
+        context.custom.capturedRequestBody = entries["content"];
+      } else {
+        context.custom.capturedRequestBody = entries;
+      }
+    } else if (contentType.includes("text/") || contentType.includes("application/xml") || contentType.includes("+xml")) {
+      // text/*, application/xml, text/xml, application/soap+xml, etc.
       context.custom.capturedRequestBody = await clonedRequest.text();
     } else {
       // for binary data, just note that it exists

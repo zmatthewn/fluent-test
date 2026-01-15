@@ -82,13 +82,15 @@ async function logRequestResponse(
   const timestamp = Date.now();
 
   // going to serialize the req and the resp so we can add them both to a single file
+  // request body was captured by the inbound policy and stashed in context.custom
+  // (because by the time we get here, the body has already been consumed by the handler)
 
-  const requestBody = await getRequestBody(request);
+  const requestBody = context.custom.capturedRequestBody ?? "[No request body captured - is api-logging-inbound policy applied?]";
   const serializedRequest = {
     method: request.method,
     url: request.url,
     headers: Object.fromEntries(request.headers.entries()),
-    body: requestBody,
+    body: typeof requestBody === "object" ? JSON.stringify(requestBody) : requestBody,
   };
 
   const responseBody = await getResponseBody(response);
@@ -96,7 +98,7 @@ async function logRequestResponse(
     status: response.status,
     statusText: response.statusText,
     headers: Object.fromEntries(response.headers.entries()),
-    body: responseBody,
+    body: typeof responseBody === "object" ? JSON.stringify(responseBody) : responseBody,
   };
 
   // build the log entry
@@ -146,35 +148,6 @@ function getRouteName(url: string): string {
     return routeName.replace(/[^a-zA-Z0-9_-]/g, "_");
   } catch {
     return "unknown";
-  }
-}
-
-async function getRequestBody(request: ZuploRequest): Promise<unknown> {
-  try {
-    // check if there's a body to read
-    if (request.method === "GET" || request.method === "HEAD" || request.method === "OPTIONS") {
-      return null;
-    }
-
-    const contentType = request.headers.get("content-type") || "";
-
-    // for requests, we need to clone since the body may have already been read
-    const clonedRequest = request.clone();
-
-    if (contentType.includes("application/json")) {
-      return await clonedRequest.json();
-    } else if (
-      contentType.includes("text/") ||
-      contentType.includes("application/x-www-form-urlencoded")
-    ) {
-      return await clonedRequest.text();
-    } else {
-      // for binary data, just note that it exists im not gonna surface the whole damn image or w/e in the log 
-      const blob = await clonedRequest.blob();
-      return `[Binary data: ${blob.size} bytes, type: ${contentType}]`;
-    }
-  } catch {
-    return "[Unable to read request body]";
   }
 }
 

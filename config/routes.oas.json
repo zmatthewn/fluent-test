@@ -93,7 +93,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -118,7 +122,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -143,8 +151,12 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "crowdtwist-fluent-basic-auth-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -169,7 +181,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -194,7 +210,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -219,7 +239,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -244,7 +268,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -269,7 +297,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -294,7 +326,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -319,7 +355,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -344,7 +384,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -369,7 +413,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -394,7 +442,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },
@@ -418,9 +470,12 @@
             }
           },
           "policies": {
-            "inbound": [],
+            "inbound": [
+              "api-logging-inbound"
+            ],
             "outbound": [
-              "fluent-set-headers-outbound-image"
+              "fluent-set-headers-outbound-image",
+              "api-logging-outbound"
             ]
           }
         },
@@ -453,7 +508,11 @@
           },
           "policies": {
             "inbound": [
+              "api-logging-inbound",
               "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
             ]
           }
         },

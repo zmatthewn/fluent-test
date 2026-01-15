@@ -84,6 +84,27 @@
       },
       "name": "fluent-set-headers-outbound-image",
       "policyType": "set-headers-outbound"
+    },
+    {
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/api-logging-inbound)"
+      },
+      "name": "api-logging-inbound",
+      "policyType": "custom-code-inbound"
+    },
+    {
+      "handler": {
+        "export": "default",
+        "module": "$import(./modules/api-logging-outbound)",
+        "options": {
+          "blobBaseUrl": "$env(AZURE_BLOB_BASEURL)",
+          "sasAuth": "$env(AZURE_BLOB_SAS_AUTH)",
+          "debugEnabled": "$env(API_LOGGING_DEBUG_ENABLED)"
+        }
+      },
+      "name": "api-logging-outbound",
+      "policyType": "custom-code-outbound"
     }
   ]
 }

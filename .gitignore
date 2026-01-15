@@ -8,3 +8,8 @@ node_modules/
 # OS Stuff
 
 .DS_Store
+
+# Local development stuff
+
+.vscode/
+.claude/

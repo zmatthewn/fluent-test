@@ -9,6 +9,7 @@
     "docs": "npm run dev --workspace docs"
   },
   "dependencies": {
+    "sitemap": "^8.0.1",
     "zuplo": "^6"
   },
   "devDependencies": {

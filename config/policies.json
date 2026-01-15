@@ -88,6 +88,14 @@
     {
       "handler": {
         "export": "default",
+        "module": "$import(./modules/api-logging-inbound)"
+      },
+      "name": "api-logging-inbound",
+      "policyType": "custom-code-inbound"
+    },
+    {
+      "handler": {
+        "export": "default",
         "module": "$import(./modules/api-logging-outbound)",
         "options": {
           "blobBaseUrl": "$env(AZURE_BLOB_BASEURL)",

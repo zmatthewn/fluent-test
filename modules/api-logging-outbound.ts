@@ -72,6 +72,29 @@ export default async function (
   return response;
 }
 
+// headers to strip from logs (case-insensitive)
+const SENSITIVE_HEADERS = [
+  "authorization",
+  "x-api-key",
+  "api-key",
+  "cookie",
+  "set-cookie",
+  "x-auth-token",
+  "x-access-token",
+];
+
+function stripSensitiveHeaders(headers: Headers): Record<string, string> {
+  const result: Record<string, string> = {};
+  for (const [key, value] of headers.entries()) {
+    if (SENSITIVE_HEADERS.includes(key.toLowerCase())) {
+      result[key] = "[REDACTED]";
+    } else {
+      result[key] = value;
+    }
+  }
+  return result;
+}
+
 async function logRequestResponse(
   request: ZuploRequest,
   response: Response,
@@ -89,7 +112,7 @@ async function logRequestResponse(
   const serializedRequest = {
     method: request.method,
     url: request.url,
-    headers: Object.fromEntries(request.headers.entries()),
+    headers: stripSensitiveHeaders(request.headers),
     body: typeof requestBody === "object" ? JSON.stringify(requestBody) : requestBody,
   };
 
@@ -97,7 +120,7 @@ async function logRequestResponse(
   const serializedResponse = {
     status: response.status,
     statusText: response.statusText,
-    headers: Object.fromEntries(response.headers.entries()),
+    headers: stripSensitiveHeaders(response.headers),
     body: typeof responseBody === "object" ? JSON.stringify(responseBody) : responseBody,
   };
 

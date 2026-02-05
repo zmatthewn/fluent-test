@@ -518,6 +518,64 @@
         },
         "operationId": "new-route-fbd80e68"
       }
+    },
+    "/topic_fluent_us_egiftcard_confirm_webhook": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "/topic_fluent_us_egiftcard_confirm_webhook",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "api-logging-inbound",
+              "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
+            ]
+          }
+        },
+        "operationId": "new-route-a761999a"
+      }
+    },
+    "/topic_fluent_ca_egiftcard_confirm_webhook": {
+      "x-zuplo-path": {
+        "pathMode": "open-api"
+      },
+      "post": {
+        "summary": "/topic_fluent_ca_egiftcard_confirm_webhook",
+        "description": "",
+        "x-zuplo-route": {
+          "corsPolicy": "none",
+          "handler": {
+            "export": "urlForwardHandler",
+            "module": "$import(@zuplo/runtime)",
+            "options": {
+              "baseUrl": "${env.BOOMI_EVENT_STREAMS_BASE_URL}"
+            }
+          },
+          "policies": {
+            "inbound": [
+              "api-logging-inbound",
+              "boomi-event-streams-bearer-token-inbound"
+            ],
+            "outbound": [
+              "api-logging-outbound"
+            ]
+          }
+        },
+        "operationId": "new-route-fb92ae52"
+      }
     }
   }
 }
